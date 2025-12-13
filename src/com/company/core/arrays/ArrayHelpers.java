@@ -3,16 +3,75 @@ package com.company.core.arrays;
 @SuppressWarnings({"ManualArrayCopy", "ExplicitArrayFilling"})
 public class ArrayHelpers {
 
+    /**
+     * Adds <code>element</code> to the end of <code>source</code>.
+     *
+     * @param element The array to add to
+     * @param source The element to add
+     * @return A new array, the original array <code>source</code> with <code>element</code> at the end.
+     *
+     * @author Kalina Stefanova
+     */
+
     public static int[] add(int[] source, int element) {
-        return new int[1];
+        int[] result = new int[source.length + 1];
+
+        for (int i = 0; i < source.length; i++) {
+            result[i] = source[i];
+        }
+
+        result[result.length - 1] = element;
+
+        return result;
     }
+
+    /**
+     * Adds <code>element</code> at the start of <code>source</code>.
+     *
+     * @param source The array to add to
+     * @param element The element to add
+     * @return A new array, the original array <code>source</code> with <code>element</code> at head position.
+     *
+     * @author Kalina Stefanova
+     */
 
     public static int[] addFirst(int[] source, int element) {
-        return new int[1];
+        int[] result = new int[source.length + 1];
+
+        for (int i = 1; i <= source.length; i++) {
+            result[i] = source[i-1];
+        }
+
+        result[0] = element;
+
+        return result;
+
     }
 
+    /**
+     * Adds all <code>elements</code> to the end of <code>source</code>.
+     *
+     * @param source The array to add to
+     * @param elements The elements to add
+     * @return A new array, the original array <code>source</code> with all <code>elements</code> at the end.
+     *
+     * @author Kalina Stefanova
+     */
+
     public static int[] addAll(int[] source, int... elements) {
-        return new int[1];
+        int[] result = new int[source.length + elements.length];
+
+        for (int i = 0; i < source.length; i++) {
+            result[i] = source[i];
+        }
+
+        int elementsIndex = 0;
+
+        for (int i = source.length; i < result.length; i++) {
+            result[i] = elements[elementsIndex++];
+        }
+
+        return result;
     }
 
     /**

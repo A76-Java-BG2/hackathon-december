@@ -141,13 +141,52 @@ public class StringHelpers {
     public static String repeat(String source, int times) {
         return null;
     }
-
+    /**
+     * Reverses the characters of the given string.
+     *
+     * @param source The original string to reverse
+     * @return A new string where the characters of source are in reverse order
+     *
+     * @author Sayret Meyzinev
+     */
     public static String reverse(String source) {
-        return null;
+        if (source == null || source.isEmpty()) {
+            return source;
+        }
+
+        String result = "";
+
+        for (int i = source.length() - 1; i >= 0; i--) {
+            result += source.charAt(i);
+        }
+
+        return result;
     }
+    /**
+     * Extracts a section of the string between two indices.
+     *
+     * @param source The original string
+     * @param start The starting index (inclusive)
+     * @param end The ending index (inclusive)
+     * @return A new string containing the characters from start to end
+     *
+     * @author Sayret Meyzinev
+     */
 
     public static String section(String source, int start, int end) {
-        return null;
+        if (source == null || source.isEmpty()) {
+            return "";
+        }
+
+        if (start < 0 || end < start || start >= source.length()) {
+            return source;
+        }
+
+        if (end >= source.length()) {
+            end = source.length() - 1;
+        }
+
+        return source.substring(start, end + 1);
     }
 
     public static boolean startsWith(String source, char target) {

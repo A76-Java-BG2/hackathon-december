@@ -265,11 +265,26 @@ public class ArrayHelpers {
      * @author Sayret Meyzinev
      */
     public static int[] section(int[] source, int startIndex, int endIndex) {
+        if (source == null || source.length == 0) {
+            return new int[]{};
+        }
+
+        if (startIndex < 0 || startIndex >= source.length || startIndex > endIndex) {
+            return source;
+        }
+
+        if (endIndex >= source.length) {
+            endIndex = source.length - 1;
+        }
+
         int[] result = new int[endIndex - startIndex + 1];
+
         for (int i = 0; i < result.length; i++) {
             result[i] = source[startIndex + i];
         }
+
         return result;
     }
+
 
 }

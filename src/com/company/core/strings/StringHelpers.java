@@ -120,17 +120,78 @@ public class StringHelpers {
         return -1;
     }
 
+    /**
+     * Finds the last index of `target` within `source`.
+     *
+     * @param source The string to check
+     * @param symbol The character to check for
+     * @return The last index `symbol` within `source` or -1 if no match
+     *
+     * @author Spasimira Genova
+     */
+
     public static int lastIndexOf(String source, char symbol) {
-        return 0;
+        int searchedIndex = -1;
+        for (int i = 0; i < source.length(); i++) {
+            if (source.charAt(i) == symbol) {
+                searchedIndex = i;
+            }
+        }
+
+        return searchedIndex;
     }
+
+    /**
+     * Pads string on the left and right sides if it's shorter than length.
+     *
+     * @param source The string to pad
+     * @param length The length of the string to achieve
+     * @param paddingSymbol - The character used as padding
+     * @return The padded string
+     *
+     * @author Spasimira Genova
+     */
+
 
     public static String pad(String source, int length, char paddingSymbol) {
-        return null;
+        String paddedString = source;
+        if (source.length() < length) {
+            int lengthDiff = length - source.length();
+            int lengthEachSide = lengthDiff / 2;
+            int counter = 0;
+            while (counter != lengthEachSide) {
+                paddedString = paddingSymbol + paddedString;
+                paddedString = paddedString + paddingSymbol;
+                counter++;
+            }
+        }
 
+        return paddedString;
     }
 
+    /**
+     * Pads `source` on the right side with `paddingSymbol` enough times to reach length `length`.
+     *
+     * @param source The string to pad
+     * @param length The length of the string to achieve
+     * @param paddingSymbol - The character used as padding
+     * @return The padded string
+     *
+     * @author Spasimira Genova
+     */
+
     public static String padEnd(String source, int length, char paddingSymbol) {
-        return null;
+        String paddedStringEnd = source;
+        if (source.length() < length) {
+            int counter = 0;
+            int lengthDiff = length - source.length();
+            while (counter != lengthDiff) {
+                paddedStringEnd = paddedStringEnd + paddingSymbol;
+                counter++;
+            }
+        }
+
+        return paddedStringEnd;
     }
 
     public static String padStart(String source, int length, char paddingSymbol) {

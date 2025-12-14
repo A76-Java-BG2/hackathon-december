@@ -185,7 +185,7 @@ public class ArrayHelpers {
      * Reverses the elements of the given array in place.
      *
      * @param arrayToReverse The array to reverse
-     * @return void
+     *
      *
      * @author Sayret Meyzinev
      */
@@ -212,12 +212,10 @@ public class ArrayHelpers {
      * @author Sayret Meyzinev
      */
     public static int[] section(int[] source, int startIndex, int endIndex) {
-        int[] result = new int[endIndex - startIndex];
-
+        int[] result = new int[endIndex - startIndex + 1];
         for (int i = 0; i < result.length; i++) {
             result[i] = source[startIndex + i];
         }
-
         return result;
     }
 

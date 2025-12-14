@@ -147,24 +147,78 @@ public class ArrayHelpers {
     public static int[] insert(int[] source, int index, int element) {
         return new int[1];
     }
-
+    /**
+     * Checks whether the given index is valid for the provided array.
+     *
+     * @param source The array to check against
+     * @param index The index to validate
+     * @return true if the index is within array bounds, false otherwise
+     *
+     * @author Sayret Meyzinev
+     */
     public static boolean isValidIndex(int[] source, int index) {
-        return false;
-    }
 
+        return index >= 0 && index < source.length;
+    }
+    /**
+     * Finds the last occurrence of a target element in the array.
+     *
+     * @param source The array to search in
+     * @param target The element to find
+     * @return The last index of the element or -1 if not found
+     *
+     * @author Sayret Meyzinev
+     */
     public static int lastIndexOf(int[] source, int target) {
-        return 0;
+        for (int i = source.length - 1; i >= 0; i--) {
+            if (source[i] == target) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     public static int[] removeAllOccurrences(int[] source, int element) {
         return new int[1];
     }
-
+    /**
+     * Reverses the elements of the given array in place.
+     *
+     * @param arrayToReverse The array to reverse
+     * @return void
+     *
+     * @author Sayret Meyzinev
+     */
     public static void reverse(int[] arrayToReverse) {
-    }
+        int left = 0;
+        int right = arrayToReverse.length - 1;
 
+        while (left < right) {
+            int temp = arrayToReverse[left];
+            arrayToReverse[left] = arrayToReverse[right];
+            arrayToReverse[right] = temp;
+            left++;
+            right--;
+        }
+    }
+    /**
+     * Extracts a section of the array between two indices.
+     *
+     * @param source The original array
+     * @param startIndex The starting index (inclusive)
+     * @param endIndex The ending index (exclusive)
+     * @return A new array containing the specified section
+     *
+     * @author Sayret Meyzinev
+     */
     public static int[] section(int[] source, int startIndex, int endIndex) {
-        return new int[1];
+        int[] result = new int[endIndex - startIndex];
+
+        for (int i = 0; i < result.length; i++) {
+            result[i] = source[startIndex + i];
+        }
+
+        return result;
     }
 
 }

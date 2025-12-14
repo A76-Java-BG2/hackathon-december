@@ -1,5 +1,7 @@
 package com.company.core.arrays;
 
+import java.util.ArrayList;
+
 @SuppressWarnings({"ManualArrayCopy", "ExplicitArrayFilling"})
 public class ArrayHelpers {
 
@@ -136,16 +138,67 @@ public class ArrayHelpers {
         }
     }
 
+    /**
+     * *Fills `source` with `element`.*
+     *
+     * @param source The array to fill
+     * @param element The element to fill with
+     *
+     * @author Spasimira Genova
+     */
+
     public static void fill(int[] source, int element) {
-// test push
+        for (int i = 0; i < source.length; i++) {
+            source[i] = element;
+        }
     }
+
+    /**
+     * Finds the first index of `target` within `source`
+     *
+     * @param source The array to check in
+     * @param target The element to check for
+     * @return The first index of `target` within `source`, otherwise, -1
+     *
+     * @author Spasimira Genova
+     */
 
     public static int firstIndexOf(int[] source, int target) {
-        return 0;
+        int searchedIndex = -1;
+        for (int i = 0; i < source.length; i++) {
+            if (source[i] == target) {
+                searchedIndex = i;
+                break;
+            }
+        }
+        return searchedIndex;
     }
 
+    /**
+     * Inserts `element` at index `index` in `source`.
+     *
+     * @param source The array to insert in
+     * @param index The index to insert at
+     * @param element The element to insert
+     * @return A new array with `element` in it
+     *
+     * @author Spasimira Genova
+     */
+
     public static int[] insert(int[] source, int index, int element) {
-        return new int[1];
+        ArrayList<Integer> listWithNewElement = new ArrayList<>();
+        for (int j : source) {
+            listWithNewElement.add(j);
+        }
+
+        listWithNewElement.add(index, element);
+
+        int [] arrayWithNewElement = new int [listWithNewElement.size()];
+        for (int i = 0; i < listWithNewElement.size(); i++) {
+            arrayWithNewElement[i] = listWithNewElement.get(i);
+        }
+
+        return arrayWithNewElement;
     }
 
     public static boolean isValidIndex(int[] source, int index) {

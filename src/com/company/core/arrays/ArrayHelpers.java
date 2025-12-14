@@ -154,7 +154,7 @@ public class ArrayHelpers {
      * @param index The index to validate
      * @return true if the index is within array bounds, false otherwise
      *
-     * @author Sayret Meyzinev
+     * @author Sayret  Meyzinev
      */
     public static boolean isValidIndex(int[] source, int index) {
 

@@ -194,13 +194,69 @@ public class StringHelpers {
         return paddedStringEnd;
     }
 
+    /**
+     * Pads <code>source</code> on the left side with <code>paddingSymbol</code> enough times to reach length <code>length</code>.
+     *
+     * @param source The string to pad
+     * @param length The length of the string to achieve
+     * @param paddingSymbol The character used as padding
+     * @return The padded string
+     *
+     * @author Alex Valtchev
+     */
     public static String padStart(String source, int length, char paddingSymbol) {
-        return null;
+        if (source == null) {
+            return null;
+        }
 
+        if (source.length() >= length) {
+            return source;
+        }
+
+        int paddingCount = length - source.length();
+        char[] result = new char[length];
+
+        for (int i = 0; i < paddingCount; i++) {
+            result[i] = paddingSymbol;
+        }
+
+        for (int i = 0; i < source.length(); i++) {
+            result[paddingCount + i] = source.charAt(i);
+        }
+
+        return new String(result);
     }
 
+    /**
+     * Repeats <code>source</code> <code>times</code> times.
+     *
+     * @param source The string to repeat
+     * @param times The number of repetitions
+     * @return A new string containing source repeated times times
+     *
+     * @author Alex Valtchev
+     */
     public static String repeat(String source, int times) {
-        return null;
+        if (source == null) {
+            return null;
+        }
+
+        if (times <= 0 || source.length() == 0) {
+            return "";
+        }
+
+        int sourceLength = source.length();
+        char[] result = new char[sourceLength * times];
+        int index = 0;
+
+        for (int t = 0; t < times; t++) {
+            for (int i = 0; i < sourceLength; i++) {
+                result[index] = source.charAt(i);
+                index++;
+            }
+        }
+
+        return new String(result);
     }
     /**
      * Reverses the characters of the given string.
@@ -250,8 +306,21 @@ public class StringHelpers {
         return source.substring(start, end + 1);
     }
 
+    /**
+     * Checks whether <code>source</code> starts with the given character.
+     *
+     * @param source The string to check
+     * @param target The character to check for
+     * @return True if source starts with target, otherwise false
+     *
+     * @author Alex Valtchev
+     */
     public static boolean startsWith(String source, char target) {
-        return false;
+        if (source == null || source.length() == 0) {
+            return false;
+        }
+
+        return source.charAt(0) == target;
     }
 
 }

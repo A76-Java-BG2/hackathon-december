@@ -102,7 +102,7 @@ public class ArrayHelpers {
      * @param sourceArray The array to copy from
      * @param destinationArray The array to copy to
      * @param count The number of elements to copy
-     * 
+     *
      *
      * @author Mariyan Todorov
      */
@@ -131,7 +131,7 @@ public class ArrayHelpers {
     public static void copyFrom(int[] sourceArray, int sourceStartIndex,
                                 int[] destinationArray, int destStartIndex, int count) {
 
-            int destIndex = destStartIndex;
+        int destIndex = destStartIndex;
         for (int i = sourceStartIndex; i < count; i++) {
             destinationArray[destIndex] = sourceArray[i];
             destIndex++;
@@ -231,8 +231,38 @@ public class ArrayHelpers {
         return -1;
     }
 
+    /**
+     * Creates a new array containing all elements from <code>source</code> except those equal to <code>element</code>.
+     *
+     * @param source The source array
+     * @param element The element to remove
+     * @return A new array that contains every value from source except the removed occurrences.
+     *
+     * @author Alex Valtchev
+     */
     public static int[] removeAllOccurrences(int[] source, int element) {
-        return new int[1];
+        if (source == null || source.length == 0) {
+            return new int[]{};
+        }
+
+        int keptCount = 0;
+        for (int i = 0; i < source.length; i++) {
+            if (source[i] != element) {
+                keptCount++;
+            }
+        }
+
+        int[] result = new int[keptCount];
+        int resultIndex = 0;
+
+        for (int i = 0; i < source.length; i++) {
+            if (source[i] != element) {
+                result[resultIndex] = source[i];
+                resultIndex++;
+            }
+        }
+
+        return result;
     }
     /**
      * Reverses the elements of the given array in place.

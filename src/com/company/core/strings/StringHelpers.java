@@ -241,7 +241,7 @@ public class StringHelpers {
             return null;
         }
 
-        if (times <= 0 || source.length() == 0) {
+        if (times < 0 || source.length() == 0) {
             return "";
         }
 
